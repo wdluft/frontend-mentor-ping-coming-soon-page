@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* ==================== */
+  /* Variables */
+  /* ==================== */
+  /* Colors */
+  --blue: hsl(223, 87%, 63%);
+  --paleBlue: hsl(223, 100%, 88%);
+  --lightRed: hsl(354, 100%, 66%);
+  --grey: hsl(0, 0%, 59%);
+  --superDarkBlue: hsl(209, 33%, 12%);
+
+  /* Typography */
+  --font: 'Libre Franklin';
+  --bodyTextSize: clamp(0.75rem, 1.875vw, 1.25rem);
+  --bodyTextWeight: 300;
+  --bodyLineHeight: 1.25;
+
+  --h1: clamp(1.375rem, 3.4375vw, 3rem);
+  --h1Weight: 300;
+  --h1LineHeight: 2rem;
+
+  /* ==================== */
+  /* Body styles */
+  /* ==================== */
+  min-height: 100vh;
+
+  font-family: var(--font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: var(--bodyTextSize);
+  font-weight: var(--bodyTextWeight);
+  text-align: center;
+  color: var(--superDarkBlue);
+}
+
+main {
+  padding: 5rem 2rem 0;
+}
+
+.logo {
+  padding-bottom: 2rem;
+}
+
+.logo h2 {
+  font-size: clamp(1.25rem, 3.125vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.logo h2 span {
+  color: var(--blue);
+}
+
+h1 {
+  font-size: var(--h1);
+  font-weight: var(--h1Weight);
+  color: var(--grey);
+  line-height: var(--h1LineHeight);
+  padding-bottom: 1rem;
+}
+
+h1 > span {
+  font-weight: 700;
+  color: var(--superDarkBlue);
+}
+
+p {
+  padding-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.75rem;
+}
+
+input,
+button {
+  border-radius: 1.75rem;
+  padding: 0.75rem 2rem;
+  border: none;
+}
+
+form input {
+  margin-bottom: 0.625rem;
+  border: 1px solid var(--paleBlue);
+}
+
+button {
+  background-color: var(--blue);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 40rem) {
+  h1 {
+    --h1LineHeight: 1.25;
+  }
+}
