@@ -105,21 +105,40 @@ button {
 }
 
 form input {
-  margin-bottom: 0.625rem;
   border: 1px solid var(--paleBlue);
+  width: 100%;
 }
 
-form input:invalid {
+.input-group {
+  margin-bottom: 0.625rem;
+}
+
+/* Input is not empty, not in focus, not valid */
+form input:invalid:not(:focus):not(:placeholder-shown) {
   border-color: var(--lightRed);
 }
 
-form input[type='email']::after {
-  content: 'Please provide a valid email address';
+/* Invalid input becomes in focus (and also still isn't empty) */
+form input:invalid:focus:not(:placeholder-shown) {
+  border-color: var(--lightRed);
+}
+
+.error-msg {
+  display: none;
+}
+
+form input:invalid:not(:focus):not(:placeholder-shown) + .error-msg {
+  display: block;
   color: var(--lightRed);
   font-size: 0.625rem;
   line-height: 1.25rem;
-  height: 1.25rem;
-  width: 100%;
+}
+
+form input:invalid:focus:not(:placeholder-shown) + .error-msg {
+  display: block;
+  color: var(--lightRed);
+  font-size: 0.625rem;
+  line-height: 1.25rem;
 }
 
 button {
@@ -128,6 +147,11 @@ button {
   font-weight: 600;
   border: 1px solid var(--blue);
   box-shadow: 0 5px 10px 2px rgba(76, 123, 243, 23.04%);
+}
+
+button:hover {
+  background-color: hsl(223, 87%, 70%);
+  border-color: hsl(223, 87%, 70%);
 }
 
 .dashboard-img {
@@ -181,9 +205,8 @@ button {
   form {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    align-items: center;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     grid-gap: 1rem;
 
     padding: 0 0 5.5rem;
@@ -196,6 +219,26 @@ button {
 
   form input {
     margin-bottom: 0;
+  }
+
+  .input-group {
+    position: relative;
+  }
+
+  form input:invalid:not(:focus):not(:placeholder-shown) + .error-msg {
+    position: absolute;
+    text-align: left;
+    padding-left: 2rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  form input:invalid:focus:not(:placeholder-shown) + .error-msg {
+    position: absolute;
+    text-align: left;
+    padding-left: 2rem;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
   }
 
   .dashboard-img {
